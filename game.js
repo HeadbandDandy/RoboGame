@@ -156,16 +156,13 @@ var shop = function() {
 
     // this switch case will carry out our action
     switch (shopOptions) {
-        case 'REFILL':
-        case 'refill':
+        case 1:
             playerInfo.refillHealth();
             break;
-        case 'UPGRADE':
-        case "upgrade":
+        case 2:
             playerInfo.upgradeAttack();
             break;
-        case 'EXIT':
-        case "exit":
+        case 3:
             window.alert('leaving the store');
             break;
             default: 
