@@ -160,20 +160,33 @@ for (var i = 0; i < enemyInfo.length; i++) {
 
 // function to end the game will be placed here
 var endGame = function() {
-    if (playerInfo.health > 0 ) {
-        window.alert("You did pretty well!! Here is your score " + playerInfo.money + '.')
-    } else {
-        window.alert('You lost your fighter in a great battle!!!')
+    window.alert("The Game has ended. Let's check and see how you did!");
+
+    // below will check the local storage
+    var highScore = localStorage.getItem("highscore");
+    if (highScore === null) {
+        highScore = 0;
     }
 
-    var playAgain = window.confirm("would you like to play again?")
+    // if playaer has more money than high score, set new high score
+    if (playerInfo.money > highScore) {
+        localStorage.setItem('highscore', playerInfo.money);
+        localStorage.setItem('name', playerInfo.name);
+
+        alert(playerInfo.name + ' now has a score of ' + playerInfo.money + '!');
+    } else {
+        alert(playerInfo.name + " did not beat the score " + highScore + " test your luck again! ");
+
+    }
+
+    var playAgain = window.confirm('Want to play again?');
 
     if (playAgain) {
-        //restarts the game
-        startGame();
+        startGame()
     } else {
-        window.alert('Thank you for playing Robo-Glads! Hope you enjoyed!!!')
-    }   
+        window.alert('Thanks for playing! Try again some other time!!!')
+    }
+ 
 };
 
 //shop function to buy upgrades and edit player ability
