@@ -162,10 +162,26 @@ var shop = function() {
     }
 }
 
+// function needed to handle player name input
+
+var getPlayerName = function() {
+    var name = "";
+
+    // need loop with prompt and condition below
+    while (name === '' || name === null) {
+        name = prompt('What is the name of your fighter?');
+    }
+
+
+    console.log("Your fighters name is" + name);
+    return name;
+
+}
+
 
 
 var playerInfo = {
-    name: window.prompt("What is the name of your fighter?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
