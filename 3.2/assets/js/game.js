@@ -3,7 +3,7 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-var enemyNames = ['Oppehnheimer', 'Oppy The Opp', '300-Block Opp'];
+var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
@@ -19,7 +19,7 @@ var fight = function(enemyName) {
     var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
     // if player picks "skip" confirm and then stop the loop
-    if (promptFight === "skip" || promptFight === "SKIP" || promptFight === "Skip") {
+    if (promptFight === "skip" || promptFight === "SKIP") {
       // confirm player wants to skip
       var confirmSkip = window.confirm("Are you sure you'd like to quit?");
 
@@ -94,7 +94,3 @@ for (var i = 0; i < enemyNames.length; i++) {
     break;
   }
 }
-
-
-
-
