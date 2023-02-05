@@ -101,6 +101,9 @@ for (var i = 0; i < enemyNames.length; i++) {
       // if not at the last enemy in the array
       // ensures that the shop is called for after every fight
       if (playerHealth > 0 && i < enemyNames.length - 1) {
+          // ask if player wants to shop or not
+          var shopConfirm = window.confirm("The fight is over, check out some abilities in the store before the next round!")
+      } if (shopConfirm) {
           shop()
       }
     }
@@ -136,7 +139,40 @@ var endGame = function() {
 
 //shop function to buy upgrades and edit player ability
 var shop = function() {
-    console.log('you are in the shop');
+    // ask player if they want to shop or not
+    var shopOptions = window.prompt(
+        "Would you like to REFILL your health, UPGRADE your attacking power, or EXIT the store? Please enter one: 'REFILL', 'UPGRADE', OR 'EXIT' please make a choice!"
+    )
+
+    // this switch case will carry out our action
+    switch (shopOptions) {
+        case 'refill':
+            window.alert("Refilling will cost you 10 dollars");
+
+        // increase health and decrease player money
+             playerHealth = playerHealth + 20;
+             playerMoney = playerMoney - 10;
+            break;
+        
+        case "upgrade":
+            window.alert('Upgrading your attack will cost you 5 dollars')
+
+            //increae player attack while decreasing the money
+            playerAttack = playerAttack + 8;
+            playerMoney = playerMoney - 5;
+            break;
+
+        case "exit":
+            window.alert('leaving the store');
+            break;
+        
+            default: 
+                window.alert("You need to pick a valid option, please try again!")
+        
+        // call shop to make player pick an option
+        shop()
+        
+    }
 }
 
 startGame()
