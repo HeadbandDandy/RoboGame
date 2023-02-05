@@ -112,7 +112,7 @@ for (var i = 0; i < enemyNames.length; i++) {
 // function to end the game will be placed here
 var endGame = function() {
     if (playerHealth > 0 ) {
-        window.alert("You did pretty well!! Here us your score " + playerMoney + '.')
+        window.alert("You did pretty well!! Here is your score " + playerMoney + '.')
     } else {
         window.alert('You lost your fighter in a great battle!!!')
     }
