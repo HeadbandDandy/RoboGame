@@ -1,24 +1,3 @@
-var playerInfo = {
-    name: window.prompt("What is the name of your fighter?"),
-    health: 100,
-    attack: 10,
-    money: 10
-};
-
-var enemyInfo = [
-    {
-        name: 'Oppenheimer',
-        attack: randomNumber(10, 14)
-    },
-    {
-        name: 'Oppy The Opp',
-        attack: randomNumber(8, 16)
-    },
-    {
-        name: '300 Block Opp',
-        attack: randomNumber(12, 18)
-    }
-]
 
 
 
@@ -204,6 +183,29 @@ var randomNumber = function (min, max) {
     //below will return a value..
     return value
 }
+
+var playerInfo = {
+    name: window.prompt("What is the name of your fighter?"),
+    health: 100,
+    attack: 10,
+    money: 10
+};
+
+var enemyInfo = [
+    {
+        name: 'Oppenheimer',
+        attack: randomNumber(10, 14)
+    },
+    {
+        name: 'Oppy The Opp',
+        attack: randomNumber(8, 16)
+    },
+    {
+        name: '300 Block Opp',
+        attack: randomNumber(12, 18)
+    }
+]
+
 
 startGame()
 
