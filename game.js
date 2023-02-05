@@ -8,15 +8,15 @@ var playerInfo = {
 var enemyInfo = [
     {
         name: 'Oppenheimer',
-        attack: 12
+        attack: randomNumber(10, 14)
     },
     {
         name: 'Oppy The Opp',
-        attack: 10
+        attack: randomNumber(8, 16)
     },
     {
         name: '300 Block Opp',
-        attack: 14
+        attack: randomNumber(12, 18)
     }
 ]
 
