@@ -5,14 +5,22 @@ var playerInfo = {
     money: 10
 };
 
-var enemyNames = ['Oppehnheimer', 'Oppy The Opp', '300-Block Opp'];
-var enemyHealth = 50;
-var enemyAttack = 12;
+var enemyInfo = [
+    {
+        name: 'Oppenheimer',
+        attack: 12
+    },
+    {
+        name: 'Oppy The Opp',
+        attack: 10
+    },
+    {
+        name: '300 Block Opp',
+        attack: 14
+    }
+]
 
-console.log(enemyNames);
-console.log(enemyNames.length);
-console.log(enemyNames[0]);
-console.log(enemyNames[3]);
+
 
 // fight function (now with parameter for enemy's name)
 var fight = function(enemyName) {
@@ -84,27 +92,27 @@ var startGame = function() {
     playerMoney = 10;
 
     // fight each enemy-robot by looping over them and fighting them one at a time
-for (var i = 0; i < enemyNames.length; i++) {
+for (var i = 0; i < enemyInfo.length; i++) {
     // if player is still alive, keep fighting
     if (playerHealth > 0) {
       // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
       window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
   
       // pick new enemy to fight based on the index of the enemyNames array
-      var pickedEnemyName = enemyNames[i];
+      var pickedEnemyObject = enemyInfo[i];
   
       // reset enemyHealth before starting new fight and assign random value
-      enemyHealth = randomNumber(40, 60);
+      pickedEnemyObject.health = randomNumber(40, 60);
   
       // use debugger to pause script from running and check what's going on at that moment in the code
       // debugger;
   
       // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
-      fight(pickedEnemyName);
+      fight(pickedEnemyObject);
 
       // if not at the last enemy in the array
       // ensures that the shop is called for after every fight
-      if (playerHealth > 0 && i < enemyNames.length - 1) {
+      if (playerHealth > 0 && i < enemyInfo.length - 1) {
           // ask if player wants to shop or not
           var shopConfirm = window.confirm("The fight is over, check out some abilities in the store before the next round!")
       } if (shopConfirm) {
