@@ -146,6 +146,7 @@ var shop = function() {
 
     // this switch case will carry out our action
     switch (shopOptions) {
+        case 'REFILL':
         case 'refill':
             //need conditional to ensure player has enough money
             if (playerMoney >= 10) {
@@ -157,7 +158,7 @@ var shop = function() {
              playerHealth = playerHealth + 20;
              playerMoney = playerMoney - 10;
             break;
-        
+        case 'UPGRADE':
         case "upgrade":
             if (playerMoney >= 5) {
                 window.alert('Upgrading your attack will cost you 5 dollars')
@@ -168,16 +169,18 @@ var shop = function() {
             playerAttack = playerAttack + 8;
             playerMoney = playerMoney - 5;
             break;
-
+        case 'EXIT':
         case "exit":
             window.alert('leaving the store');
             break;
         
             default: 
                 window.alert("You need to pick a valid option, please try again!")
+                        // call shop to make player pick an option
+                shop();
+                break;
         
-        // call shop to make player pick an option
-        shop()
+
         
     }
 }
