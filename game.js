@@ -17,17 +17,21 @@ var fightOrNotFight = function() {
         window.alert('You must enter a valid response...try again!');
         return fightOrNotFight();
     }
+
+    promptFight = promptFight.toLowerCase();
+
     if (promptFight === "skip" || promptFight === "SKIP" || promptFight === "Skip") {
         var confirmSkip = window.confirm('Are you sure you want to leave?')
 
         if (confirmSkip) {
             window.alert(playerInfo.name + " has decided to skip fighting...pretty soft! Adios!!");
-            playerInfo.playerMoney = playerInfo.money - 10;
-            shop()
+            playerInfo.money = Math.max(0, playerInfo.money - 10);
+            
+            return true;
         }
 
     }
-    
+        return false;
 }
 
 
@@ -35,7 +39,9 @@ var fightOrNotFight = function() {
 var fight = function(enemy) {
     console.log(enemy)
   while (playerInfo.health > 0 && enemy.health > 0) {
-      fightOrNotFight()
+     if (fightOrNotFight()) {
+         break;
+     }
   
 
     // remove enemy's health by subtracting the amount set in the playerInfo.attack variable
