@@ -100,7 +100,7 @@ for (var i = 0; i < enemyNames.length; i++) {
 
       // if not at the last enemy in the array
       // ensures that the shop is called for after every fight
-      if (i < enemyNames.length - 1) {
+      if (playerHealth > 0 && i < enemyNames.length - 1) {
           shop()
       }
     }
