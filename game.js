@@ -23,8 +23,9 @@ var enemyInfo = [
 
 
 // fight function (now with parameter for enemy's name)
-var fight = function(enemyName) {
-  while (playerHealth > 0 && enemyHealth > 0) {
+var fight = function(enemy) {
+    console.log(enemy)
+  while (playerHealth > 0 && enemy.health > 0) {
     // ask player if they'd like to fight or run
     var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
@@ -45,14 +46,14 @@ var fight = function(enemyName) {
 
     // remove enemy's health by subtracting the amount set in the playerAttack variable
     var damage = randomNumber(playerAttack - 3, playerAttack)
-    enemyHealth = Math.max(0, enemyHealth - damage);
+    enemy.health = Math.max(0, enemy.health - damage);
     console.log(
-      playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
+      playerName + ' attacked ' + enemy.name + '. ' + enemy.name + ' now has ' + enemy.health + ' health remaining.'
     );
 
     // check enemy's health
-    if (enemyHealth <= 0) {
-      window.alert(enemyName + ' has died!');
+    if (enemy.health <= 0) {
+      window.alert(enemy.name + ' has died!');
 
       // award player money for winning
       playerMoney = playerMoney + 20;
@@ -60,14 +61,14 @@ var fight = function(enemyName) {
       // leave while() loop since enemy is dead
       break;
     } else {
-      window.alert(enemyName + ' still has ' + enemyHealth + ' health left.');
+      window.alert(enemy.name + ' still has ' + enemy.health + ' health left.');
     }
 
-    // remove players's health by subtracting the amount set in the enemyAttack variable
+    // remove players's health by subtracting the amount set in the enemy.attack variable
     var damage = randomNumber(playerAttack - 3, playerAttack)
     playerHealth = Math.max(0, playerHealth - damage);
     console.log(
-      enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
+      enemy.name + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
     );
 
     // check player's health
@@ -98,16 +99,16 @@ for (var i = 0; i < enemyInfo.length; i++) {
       // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
       window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
   
-      // pick new enemy to fight based on the index of the enemyNames array
+      // pick new enemy to fight based on the index of the enemy.names array
       var pickedEnemyObject = enemyInfo[i];
   
-      // reset enemyHealth before starting new fight and assign random value
+      // reset enemy.health before starting new fight and assign random value
       pickedEnemyObject.health = randomNumber(40, 60);
   
       // use debugger to pause script from running and check what's going on at that moment in the code
       // debugger;
   
-      // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
+      // pass the pickedenemy.name variable's value into the fight function, where it will assume the value of the enemy.name parameter
       fight(pickedEnemyObject);
 
       // if not at the last enemy in the array
