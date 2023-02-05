@@ -67,9 +67,7 @@ var fight = function(enemy) {
 var startGame = function() {
 
     // will reset the players stats
-    playerHealth = 100;
-    playerAttack = 10;
-    playerMoney = 10;
+   playerInfo.reset();
 
     // fight each enemy-robot by looping over them and fighting them one at a time
 for (var i = 0; i < enemyInfo.length; i++) {
@@ -188,7 +186,13 @@ var playerInfo = {
     name: window.prompt("What is the name of your fighter?"),
     health: 100,
     attack: 10,
-    money: 10
+    money: 10,
+    reset: function() {
+        // "this" refers to an object
+        this.health = 100;
+        this.money = 10;
+        this.attack = 10;
+    }
 };
 
 var enemyInfo = [
