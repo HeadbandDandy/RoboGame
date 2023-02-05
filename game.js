@@ -1,7 +1,9 @@
-var playerName = window.prompt("What is your robot's name?");
-var playerHealth = 100;
-var playerAttack = 10;
-var playerMoney = 10;
+var playerInfo = {
+    name: window.prompt("What is the name of your fighter?"),
+    health: 100,
+    attack: 10,
+    money: 10
+};
 
 var enemyNames = ['Oppehnheimer', 'Oppy The Opp', '300-Block Opp'];
 var enemyHealth = 50;
