@@ -89,8 +89,8 @@ for (var i = 0; i < enemyNames.length; i++) {
       // pick new enemy to fight based on the index of the enemyNames array
       var pickedEnemyName = enemyNames[i];
   
-      // reset enemyHealth before starting new fight
-      enemyHealth = Math.floor(Math.randon() * 21) + 40;
+      // reset enemyHealth before starting new fight and assign random value
+      enemyHealth = randomNumber();
   
       // use debugger to pause script from running and check what's going on at that moment in the code
       // debugger;
