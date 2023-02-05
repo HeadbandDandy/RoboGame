@@ -69,31 +69,67 @@ var fight = function(enemyName) {
   } // end of while loop
 }; // end of fight function
 
-// fight each enemy-robot by looping over them and fighting them one at a time
+
+// below we need to wrap the for loop in a startGame() function
+
+var startGame = function() {
+
+    // will reset the players stats
+    playerHealth = 100;
+    playerAttack = 10;
+    playerMoney = 10;
+
+    // fight each enemy-robot by looping over them and fighting them one at a time
 for (var i = 0; i < enemyNames.length; i++) {
-  // if player is still alive, keep fighting
-  if (playerHealth > 0) {
-    // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-    window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
-
-    // pick new enemy to fight based on the index of the enemyNames array
-    var pickedEnemyName = enemyNames[i];
-
-    // reset enemyHealth before starting new fight
-    enemyHealth = 50;
-
-    // use debugger to pause script from running and check what's going on at that moment in the code
-    // debugger;
-
-    // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
-    fight(pickedEnemyName);
+    // if player is still alive, keep fighting
+    if (playerHealth > 0) {
+      // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
+      window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
+  
+      // pick new enemy to fight based on the index of the enemyNames array
+      var pickedEnemyName = enemyNames[i];
+  
+      // reset enemyHealth before starting new fight
+      enemyHealth = 50;
+  
+      // use debugger to pause script from running and check what's going on at that moment in the code
+      // debugger;
+  
+      // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
+      fight(pickedEnemyName);
+    }
+    // if player isn't alive, stop the game
+    else {
+      window.alert('You have lost your robot in battle! Game Over!');
+      break;
+    }
   }
-  // if player isn't alive, stop the game
-  else {
-    window.alert('You have lost your robot in battle! Game Over!');
-    break;
-  }
+  // after the call stack above finishes player is either out of health or no more enemies.
+  endGame()
+
 }
+
+// function to end the game will be placed here
+var endGame = function() {
+    if (playerHealth > 0 ) {
+        window.alert("You did pretty well!! Here us your score " + playerMoney + '.')
+    } else {
+        window.alert('You lost your fighter in a great battle!!!')
+    }
+
+    var playAgain = window.confirm("would you like to play again?")
+
+    if (playAgain) {
+        //restarts the game
+        startGame();
+    } else {
+        window.alert('Thank you for playing Robo-Glads! Hope you enjoyed!!!')
+    }
+    
+}
+
+startGame()
+
 
 
 
