@@ -97,6 +97,12 @@ for (var i = 0; i < enemyNames.length; i++) {
   
       // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
       fight(pickedEnemyName);
+
+      // if not at the last enemy in the array
+      // ensures that the shop is called for after every fight
+      if (i < enemyNames.length - 1) {
+          shop()
+      }
     }
     // if player isn't alive, stop the game
     else {
@@ -126,6 +132,11 @@ var endGame = function() {
         window.alert('Thank you for playing Robo-Glads! Hope you enjoyed!!!')
     }
     
+}
+
+//shop function to buy upgrades and edit player ability
+var shop = function() {
+    console.log('you are in the shop');
 }
 
 startGame()
