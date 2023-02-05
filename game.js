@@ -138,26 +138,11 @@ var shop = function() {
     switch (shopOptions) {
         case 'REFILL':
         case 'refill':
-            //need conditional to ensure player has enough money
-            if (playerMoney >= 10) {
-                window.alert("Refilling will cost you 10 dollars");
-            }
-           
-
-        // increase health and decrease player money
-             playerHealth = playerHealth + 20;
-             playerMoney = playerMoney - 10;
+            playerInfo.refillHealth();
             break;
         case 'UPGRADE':
         case "upgrade":
-            if (playerMoney >= 5) {
-                window.alert('Upgrading your attack will cost you 5 dollars')
-            }
-            
-
-            //increae player attack while decreasing the money
-            playerAttack = playerAttack + 8;
-            playerMoney = playerMoney - 5;
+            playerInfo.upgradeAttack();
             break;
         case 'EXIT':
         case "exit":
