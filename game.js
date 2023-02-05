@@ -173,7 +173,6 @@ var shop = function() {
         case "exit":
             window.alert('leaving the store');
             break;
-        
             default: 
                 window.alert("You need to pick a valid option, please try again!")
                         // call shop to make player pick an option
